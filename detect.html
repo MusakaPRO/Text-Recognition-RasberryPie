@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Color on Command</title>
+    <script>
+        function checkForStartCommand() {
+            fetch("http://<your-raspberry-pi-ip>:5000/check")
+                .then(response => response.json())
+                .then(data => {
+                    if(data.start) {
+                        document.body.style.backgroundColor = "green";
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+        }
+
+        setInterval(checkForStartCommand, 1000); // Check every second
+    </script>
+</head>
+<body>
+    <h1>Watch for Start Command</h1>
+</body>
+</html>
