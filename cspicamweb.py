@@ -7,6 +7,10 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return render_template('detect.html')
+
 # This will act as a flag to communicate with the web page
 start_detected = False
 
